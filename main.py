@@ -1,5 +1,5 @@
 # Telegram chat shop
-#
+# fork djamb
 # - *- coding: utf- 8 - *-
 import os
 import sys
