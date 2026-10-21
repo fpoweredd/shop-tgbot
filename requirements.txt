@@ -1,12 +1,9 @@
-aiogram
-colorlog
-requests
-bs4
-beautifulsoup4
-aiohttp
+aiogram==2.25.2
 APScheduler==3.8.0
+python-dotenv>=1.0,<2
+colorlog
 colorama
+requests
 async_class
-typing
 yoomoney
 payok
