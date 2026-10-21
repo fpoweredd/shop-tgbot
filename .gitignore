@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+.env
+!.env.example
+
+# Bot data (database, promo codes, logs, edited texts)
+*.db
+*.db-journal
+*.log
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
