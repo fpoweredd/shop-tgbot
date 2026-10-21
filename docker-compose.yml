@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    image: shop-tgbot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - bot-data:/data
+
+volumes:
+  bot-data:
