@@ -1,5 +1,3 @@
-# Telegram chat shop
-# fork djamb
 # - *- coding: utf- 8 - *-
 import os
 import sys
@@ -15,8 +13,8 @@ from tgbot.services.api_session import AsyncSession
 from tgbot.services.api_sqlite import create_dbx
 from tgbot.utils.misc.bot_commands import set_commands
 from tgbot.utils.misc.bot_logging import bot_logger
-from tgbot.utils.misc_functions import check_update, check_bot_data, on_startup_notify, update_profit_day, \
-    update_profit_week, autobackup_admin, check_mail
+from tgbot.utils.misc_functions import check_bot_data, on_startup_notify, update_profit_day, \
+    update_profit_week, autobackup_admin
 
 colorama.init()
 
@@ -25,8 +23,6 @@ colorama.init()
 async def scheduler_start(aSession):
     scheduler.add_job(update_profit_week, "cron", day_of_week="mon", hour=00, minute=1)
     scheduler.add_job(update_profit_day, "cron", hour=00)
-    scheduler.add_job(check_update, "cron", hour=00, args=(aSession,))
-    scheduler.add_job(check_mail, "cron", hour=12, args=(aSession,))
     scheduler.add_job(autobackup_admin, "cron", hour=00)
 
 
@@ -43,7 +39,7 @@ async def on_startup(dp: Dispatcher):
     await scheduler_start(aSession)
     await on_startup_notify(dp, aSession)
 
-    if len(get_admins()) == 0: print("***** ENTER ADMIN ID IN settings.ini *****")
+    if len(get_admins()) == 0: print("***** SET ADMIN_IDS IN .env *****")
 
 
 # Выполнение функции после выключения бота
